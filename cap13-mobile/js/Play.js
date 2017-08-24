@@ -7,17 +7,20 @@ Breakout.Play.prototype = {
         this.barra = this.add.sprite(this.world.centerX, 500, 'barra');
         this.bola.anchor.setTo(.5);
         this.barra.anchor.setTo(.5);
+        this.posBarra = 500;
 
         if(!this.game.device.desktop){
-            this.esqBtn = this.add.sprite(0, 400, 'tijolos', 38);
-            this.esqBtn.scale.setTo(2);
-            this.esqBtn.alpha = .5;
-            this.dirBtn = this.add.sprite(560, 400, 'tijolos', 39);
-            this.dirBtn.scale.setTo(2);
-            this.dirBtn.alpha = .5;
+            this.esqBtn = this.add.sprite(0, 410, 'tijolos', 38);
+            this.esqBtn.scale.setTo(2.5, 2);
+            this.esqBtn.alpha = .7;
+            this.dirBtn = this.add.sprite(560, 410, 'tijolos', 39);
+            this.dirBtn.scale.setTo(2.5, 2);
+            this.dirBtn.alpha = .7;
             
-            this.esq=false;
-            this.dir=false;
+            this.posBarra = 400;
+            
+            this.esq = false;
+            this.dir = false;
             
             this.esqBtn.inputEnabled = true;
             this.dirBtn.inputEnabled = true;
@@ -96,7 +99,7 @@ Breakout.Play.prototype = {
         this.prontoTxt.visible = true;
         this.bola.body.velocity.setTo(0);
         this.bola.position.setTo(this.world.centerX, this.world.centerY);
-        this.barra.position.setTo(this.world.centerX, 500);
+        this.barra.position.setTo(this.world.centerX, this.posBarra);
         this.time.events.add(Phaser.Timer.SECOND * .5,function(){
             this.physics.arcade.velocityFromAngle(this.rnd.between(45, 135), 
 		300 + this.nivel * 10, this.bola.body.velocity);
