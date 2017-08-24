@@ -8,7 +8,7 @@ Breakout.Play.prototype = {
         this.bola.anchor.setTo(.5);
         this.barra.anchor.setTo(.5);
 
-        if(!this.game.device.mobile){
+        if(!this.game.device.desktop){
             this.esqBtn = this.add.sprite(0, 400, 'tijolos', 38);
             this.esqBtn.scale.setTo(2);
             this.esqBtn.alpha = .5;
@@ -117,7 +117,7 @@ Breakout.Play.prototype = {
     },
     update:function(){
         this.atualizaUi();
-    console.log(this.esq);
+        
         if(this.esqKey.isDown || this.esq)
             this.barra.body.velocity.x = -600 - this.nivel * 10;
         else if(this.dirKey.isDown || this.dir)
